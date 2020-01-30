@@ -11,7 +11,8 @@ import axios from 'axios';
 import {
   View,
   Text,
-  TextInput 
+  TextInput,
+  Image 
 } from 'react-native';
 
 
@@ -19,10 +20,14 @@ const App = () => {
 
   const [url, seturl] = useState('');
   const [nombre, setNombre]= useState('');
+  const [foto , setFoto] = useState('');
+  const [id, setId]= useState('');
 
   const consultarApi = async()=>{
     const data = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${url}`)
     setNombre(data.data.drinks[0].strDrink)
+    setFoto(data.data.drinks[0].strDrinkThumb)
+    setId(data.data.drinks[0].idDrink)
   }
 
   const aprobar = async () => {
@@ -47,6 +52,8 @@ const App = () => {
       <Text>Hola</Text>
       <TextInput onChangeText={ (text) => seturl(text) }/>
       <Text>{nombre}</Text>
+      <Text>id : {id} </Text>
+      <Image source={{uri : foto}}  style={{width: 200, height: 200}}/>
     </>
   );
 };
