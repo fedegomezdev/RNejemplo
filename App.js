@@ -25,7 +25,7 @@ const App = () => {
 
   const [input, setInput] = useState('');
   const [info , setInfo] = useState([]);
-
+  const [isLoading, setLoading] = useState(true)
   
 
 
@@ -34,15 +34,15 @@ const App = () => {
     const data = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
     
     setInfo(data.data.drinks)
-  
+    setLoading(false)
   }
 
-  const aprobar = async () => {
+  const aprobar =  () => {
     if (input.length < 3){
       console.log('te falta completar capo');
       return;
     } else {
-      await consultarApi();
+        consultarApi();
     }
   }
 
@@ -53,14 +53,14 @@ const App = () => {
 
   }, [input, info])
  
-  if(info === null){
+  if(info === null ){
     return(
       <>
       <View style={styles.container}>
       <Text style={styles.text}> BEBIDAS </Text>
       <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
       <ActivityIndicator/>
-      <Text>Es probable que este escribiendo ma</Text>
+      <Text>Es probable que este escribiendo mal</Text>
       </View>
       </>
     )
@@ -72,7 +72,6 @@ const App = () => {
       <View style={styles.container}>
       <Text style={styles.text}> BEBIDAS </Text>
       <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
-
 
       
       { info.map( (dato) => { return(
