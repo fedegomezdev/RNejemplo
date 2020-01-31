@@ -13,30 +13,32 @@ import {
   Text,
   TextInput,
   Image,
-  ScrollView 
+  ScrollView,
+  StyleSheet ,
+  ActivityIndicator
 } from 'react-native';
+
+import Drink from './src/components/Drink';
 
 
 const App = () => {
 
-  const [url, seturl] = useState('');
-  const [nombre, setNombre]= useState('');
-  const [foto , setFoto] = useState('');
-  const [id, setId]= useState('');
+  const [input, setInput] = useState('');
   const [info , setInfo] = useState([]);
 
+  
 
-  const consultarApi = async()=>{
-    const data = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${url}`)
-    setInfo(data.data.drinks)
-    setNombre(data.data.drinks[0].strDrink)
-    setFoto(data.data.drinks[0].strDrinkThumb)
-    setId(data.data.drinks[0].idDrink)
+
+  const consultarApi = async() =>{
+
+    const data = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
     
+    setInfo(data.data.drinks)
+  
   }
 
   const aprobar = async () => {
-    if (url.length < 3){
+    if (input.length < 3){
       console.log('te falta completar capo');
       return;
     } else {
@@ -45,21 +47,32 @@ const App = () => {
   }
 
 
-  useEffect(() => {
+  useEffect( () => {
+    
     aprobar()
-  }, [url])
- 
 
+  }, [input, info])
+ 
+  if(info === null){
+    return(
+      <>
+      <View style={styles.container}>
+      <Text style={styles.text}> BEBIDAS </Text>
+      <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
+      <ActivityIndicator/>
+      <Text>Es probable que este escribiendo ma</Text>
+      </View>
+      </>
+    )
+  }
 
   return (
     <>
     <ScrollView>
-      <View>
-      <Text>Cocktails !</Text>
-      <TextInput onChangeText={ (text) => seturl(text) }/>
-      <Text>{nombre}</Text>
-      <Text>id : {id} </Text>
-      <Image source={{uri : foto}}  style={{width: 200, height: 200}}/>
+      <View style={styles.container}>
+      <Text style={styles.text}> BEBIDAS </Text>
+      <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
+
 
       
       { info.map( (dato) => { return(
@@ -74,15 +87,16 @@ const App = () => {
   );
 };
 
-function Drink(props){
-  const {image} = props;
-  return(
-    <View>
-    <Text>{props.id}</Text>
-    <Text>{props.nombre}</Text>
-    <Image source={{uri : image}}  style={{width: 200, height: 200}}/>
-    </View>
-  )
-}
+const styles = StyleSheet.create({
+  container: {
+    color: 'blue',
+    fontWeight: 'bold',
+  },
+  text: {
+    color: 'red',
+    fontSize:30
+  },
+});
+
 
 export default App;
