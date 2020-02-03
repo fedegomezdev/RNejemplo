@@ -6,96 +6,109 @@
  * @flow
  */
 
-import React,{useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
+
 import {
   View,
-  Text,
-  TextInput,
-  Image,
-  ScrollView,
   StyleSheet ,
-  ActivityIndicator
 } from 'react-native';
 
-import Drink from './src/components/Drink';
+import Aplication from './src/navigation/AppNavigation';
+
+//import Drink from './src/components/Drink';
 
 
 const App = () => {
+  
+  return(
+      
+      <Aplication/>
+      
+  )
+}
 
-  const [input, setInput] = useState('');
-  const [info , setInfo] = useState([]);
-  const [isLoading, setLoading] = useState(true)
+export default App;
+
+const style = StyleSheet.create({
+  container : {
+    backgroundColor:'red'
+  }
+})
+// const [input, setInput] = useState('');
+//   const [info , setInfo] = useState([]);
+//   const [isLoading, setLoading] = useState(true)
   
 
 
-  const consultarApi = async() =>{
+//   const consultarApi = async() =>{
 
-    const data = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
+//     const data = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`)
     
-    setInfo(data.data.drinks)
-    setLoading(false)
-  }
+//     setInfo(data.data.drinks)
+//     setLoading(false)
+//   }
 
-  const aprobar =  () => {
-    if (input.length < 3){
-      console.log('te falta completar capo');
-      return;
-    } else {
-        consultarApi();
-    }
-  }
+//   const aprobar =  () => {
+//     if (input.length < 3){
+//       console.log('te falta completar capo');
+//       return;
+//     } else {
+//         consultarApi();
+//     }
+//   }
 
 
-  useEffect( () => {
+//   useEffect( () => {
     
-    aprobar()
+//     aprobar()
 
-  }, [input, info])
+//   }, [input, info])
  
-  if(info === null ){
-    return(
-      <>
-      <View style={styles.container}>
-      <Text style={styles.text}> BEBIDAS </Text>
-      <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
-      <ActivityIndicator/>
-      <Text>Es probable que este escribiendo mal</Text>
-      </View>
-      </>
-    )
-  }
+//   if(info === null ){
+//     return(
+//       <>
+//       <View style={styles.container}>
+//       <Text style={styles.text}> BEBIDAS </Text>
+//       <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
+//       <ActivityIndicator/>
+//       <Text>Es probable que este escribiendo mal</Text>
+//       </View>
+//       </>
+//     )
+//   }
 
-  return (
-    <>
-    <ScrollView>
-      <View style={styles.container}>
-      <Text style={styles.text}> BEBIDAS </Text>
-      <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
+//   return (
+//     <>
+//     <ScrollView >
+//       <View style={styles.container}>
+//       <Text style={styles.text}> BEBIDAS </Text>
+//       <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
 
       
-      { info.map( (dato) => { return(
-        <Drink key={dato.idDrink} nombre={dato.strDrink} id={dato.idDrink} image={dato.strDrinkThumb} />
-        )
-      })
-      }   
+//       { info.map( (dato) => { return(
+//         <Drink key={dato.idDrink} nombre={dato.strDrink} id={dato.idDrink} image={dato.strDrinkThumb} />
+//         )
+//       })
+//       }   
 
-      </View>
-      </ScrollView>
-    </>
-  );
-};
+//       </View>
+//       </ScrollView>
+//     </>
+//   );
+// };
 
-const styles = StyleSheet.create({
-  container: {
-    color: 'blue',
-    fontWeight: 'bold',
-  },
-  text: {
-    color: 'red',
-    fontSize:30
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex:1,
+//     justifyContent:'center',
+//     textAlign:'center',
+//     backgroundColor:'black',
+//     color: 'blue',
+//     fontWeight: 'bold',
+//   },
+//   text: { 
+//     color: 'white',
+//     fontSize:30
+//   },
+// });
 
-
-export default App;
