@@ -3,6 +3,8 @@ import { View, Text, Button, StyleSheet, ScrollView, TextInput, ActivityIndicato
 import axios from 'axios';
 import Drink from '../components/Drink';
 
+
+
 export default function DrinkScreen() { 
     
     
@@ -50,20 +52,22 @@ export default function DrinkScreen() {
 
   return (
     <>
-    <ScrollView >
-      <View style={styles.container}>
-      <Text style={styles.text}> BEBIDAS </Text>
-      <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
+      <ScrollView >
+        <View style={styles.container}>
+          <View> 
+            <Text style={styles.text}> DRINKS </Text>
+            <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
+          </View>
 
-      
-      { info.map( (dato) => { return(
-        <Drink key={dato.idDrink} nombre={dato.strDrink} id={dato.idDrink} image={dato.strDrinkThumb} />
-        )
-      })
-      }   
-
-      </View>
-      </ScrollView>
+          <View> 
+          { info.map( (dato) => { return(
+            <Drink key={dato.idDrink} nombre={dato.strDrink} id={dato.idDrink} image={dato.strDrinkThumb} />
+            )
+          })
+          }   
+          </View>
+        </View>
+      </ScrollView> 
     </>
   );
 };
@@ -72,14 +76,17 @@ const styles = StyleSheet.create({
   container: {
     flex:1,
     justifyContent:'center',
-    textAlign:'center',
-    backgroundColor:'black',
-    color: 'blue',
+    alignItems:'center',
+    backgroundColor:'#f4f4f8',
+    color: '#2a2c41',
     fontWeight: 'bold',
   },
   text: { 
-    color: 'white',
-    fontSize:30
+    color: '#2a2c41',
+    fontSize:30,
+    fontWeight: 'bold',
+    marginBottom:15,
+    marginTop:15
   },
 });
     
