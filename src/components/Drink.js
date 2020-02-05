@@ -5,11 +5,10 @@ export default function Drink(props) {
   const {image} = props;
 
   return (
-    <View style={{flex:1, alignItems:"center"}}>
-      <Text style={{color:"#2a2c41", fontSize:20}}>{props.id}</Text>
+      <>
       <Text style={style.text}>{props.nombre}</Text>
       <Image source={{uri: image}} style={style.imagen} />
-    </View>
+      </>
   );
 }
 
@@ -21,7 +20,7 @@ const style = StyleSheet.create({
     fontSize:20,
   },
   imagen : {
-    width: 200,
+    width: 350,
     height:200,
     marginBottom:30,
     borderRadius:30

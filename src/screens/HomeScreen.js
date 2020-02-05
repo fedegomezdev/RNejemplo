@@ -1,18 +1,28 @@
 import React from 'react'
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, StyleSheet ,TouchableOpacity} from 'react-native';
+//import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function HomeScreen({navigation}) {
 
 
     return (
+
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , backgroundColor:'#f4f4f8'}}>
-        <Text style={{color:'#2a2c41'}}> COCKTAILS </Text>
-        <Button
-          title="Buscar!"
-          onPress={() => navigation.navigate('Drinks')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Drinks')}>
         <Image source={require('../assets/icons/bebidas.png')} style={{width:200, height:200}}/>
+        <Text style={style.texto}>COCKTAILS </Text>
+        </TouchableOpacity>
+        
       </View>
     )
 }
 
+const style = StyleSheet.create({
+  texto :{
+      fontSize:20,
+      fontWeight:'bold',
+      marginBottom:15,
+      alignSelf:'center',
+      marginTop:15
+  }
+})

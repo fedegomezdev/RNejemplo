@@ -41,10 +41,14 @@ export default function DrinkScreen() {
      return(
        <>
        <View style={styles.container}>
-       <Text style={styles.text}> BEBIDAS </Text>
-        <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
-       <ActivityIndicator/>
-       <Text>Es probable que este escribiendo mal</Text>
+        <View style={{flex:1}}>
+          <Text style={styles.titulo}> BEBIDAS </Text>
+          <TextInput value={input} style={styles.text} placeholder={"Search"} onChangeText={ (text) => setInput(text) }/>
+        </View>
+        <View style={{flex:3,  justifyContent:'center'}}>
+          <ActivityIndicator/>
+          <Text style={{marginTop:14}}>Es probable que este escribiendo mal</Text>
+       </View>
        </View>
        </>
     )
@@ -54,12 +58,12 @@ export default function DrinkScreen() {
     <>
       <ScrollView >
         <View style={styles.container}>
-          <View> 
-            <Text style={styles.text}> DRINKS </Text>
-            <TextInput value={input} style={styles.text} onChangeText={ (text) => setInput(text) }/>
+          <View style={{flex:1}}> 
+            <Text style={styles.titulo}> DRINKS </Text>
+            <TextInput value={input} style={styles.text} placeholder={"Search"} onChangeText={ (text) => setInput(text) }/>
           </View>
 
-          <View> 
+          <View style={{flex:3, justifyContent:'center'}}> 
           { info.map( (dato) => { return(
             <Drink key={dato.idDrink} nombre={dato.strDrink} id={dato.idDrink} image={dato.strDrinkThumb} />
             )
@@ -83,11 +87,19 @@ const styles = StyleSheet.create({
   },
   text: { 
     color: '#2a2c41',
-    fontSize:30,
+    fontSize:20,
     fontWeight: 'bold',
     marginBottom:15,
-    marginTop:15
+    marginTop:20,
+    borderColor: '#2a2c41', 
+    borderBottomColor:"#2a2c41",
+    alignSelf:'flex-start'
   },
+  titulo: {
+    fontSize:30,
+    fontWeight:'bold',
+    color:'#2a2c41'
+  }
 });
     
 

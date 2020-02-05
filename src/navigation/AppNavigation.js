@@ -9,14 +9,14 @@ const AppNavigator = createStackNavigator(
       Home:{ 
         screen: HomeScreen, 
         navigationOptions: ()=> ({
-          header:null
+          headerShown:false
       })
       },
 
       Drinks: {
         screen: DrinkScreen,
         navigationOptions: ()=> ({
-          title:"Home"
+          headerShown:false
       })
       }  
     },
