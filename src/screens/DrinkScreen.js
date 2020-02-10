@@ -56,6 +56,7 @@ export default function DrinkScreen() {
               onChangeText={text => setInput(text)}
             />
           </View>
+          
           {info ? (
             <View style={{flex: 3, justifyContent: 'center', marginHorizontal:30}}>
               {isLoading ? (<ActivityIndicator size="large"/>): null }
