@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, Button, Image, StyleSheet ,TouchableOpacity} from 'react-native';
+import { View, Text,Image, StyleSheet ,TouchableOpacity} from 'react-native';
 //import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function HomeScreen({navigation}) {
 
+export default function HomeScreen({navigation}:any) {
 
     return (
 

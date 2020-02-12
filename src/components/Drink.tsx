@@ -1,12 +1,18 @@
 import React from 'react';
 import {Text, View, Image , StyleSheet} from 'react-native';
 
-export default function Drink(props) {
-  const {image} = props;
+
+type Props = {
+  nombre : string,
+  image: string
+}
+
+export default function Drink({nombre, image }: Props) {
+ 
 
   return (
       <>
-      <Text style={style.text}>{props.nombre}</Text>
+      <Text style={style.text}>{nombre}</Text>
       <Image source={{uri: image}} style={style.imagen} />
       </>
   );

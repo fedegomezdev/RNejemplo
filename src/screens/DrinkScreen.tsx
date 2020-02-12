@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
-  Button,
   StyleSheet,
   ScrollView,
   TextInput,
@@ -31,7 +30,7 @@ export default function DrinkScreen() {
     if (input.length < 3 ) {
       
       console.log('Minimun 3');
-      setInfo(null)
+      setInfo([])
       return;
     } else {
       consultarApi();
@@ -102,7 +101,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderColor: '#2a2c41',
     borderBottomColor: '#2a2c41',
-    alignSelf: 'flex-start',
     alignSelf: 'stretch',
     backgroundColor: 'grey',
     width: 230,
