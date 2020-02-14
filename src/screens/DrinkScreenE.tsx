@@ -6,21 +6,24 @@ import {
   ScrollView,
   TextInput,
   ActivityIndicator,
-  FlatList
+  FlatList,
+  SafeAreaView
 } from 'react-native';
 import Drink from '../components/Drink';
 import {useDispatch, useSelector} from 'react-redux';
-import {StateTypes} from '../types/types'
+import {StateTypes, Drinks} from '../types/types'
 import { fetching } from '../redux/actions/actions';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-export default function DrinkScreen() {
+export default function DrinkScreenE() {
   
     const dispatch = useDispatch();
     const loading = useSelector(( state: StateTypes ) => state.loading)
     const drinks = useSelector((state:StateTypes)=> state.drinks)
     const [input, setInput] = useState('');
   
+    
 
   const aprobar = () => {
     if (input.length > 3 ) {
@@ -35,7 +38,7 @@ export default function DrinkScreen() {
 
   return (
     <>
-      <ScrollView style={{backgroundColor: '#f4f4f8', paddingVertical: 10}}>
+      
         <View style={styles.container}>
           <View style={{flex: 1}}>
             <Text style={styles.titulo}> DRINKS </Text>
@@ -47,21 +50,26 @@ export default function DrinkScreen() {
             />
           </View>
           
-          {drinks ? (
+          {drinks.length > 0 ? (
+           
             <View style={{flex: 3, justifyContent: 'center', marginHorizontal:30}}>
               
               { loading ? (<ActivityIndicator size="large"/>): null }
               
               <FlatList
+              
                 data={drinks}
-                keyExtractor={(item: { idDrink: any; }) => item.idDrink}
+                keyExtractor={(item:Drinks, index:number ) => item.idDrink}
                 renderItem={({ item }: any) => (
-                    <Drink nombre={item.strDrink} image={item.strDrinkThumb} />
+                    <TouchableOpacity key={item.idDrink}>
+                    <Drink nombre={item.strDrink} image={item.strDrinkThumb}/>
+                    </TouchableOpacity>
                 )}
-
+                ListEmptyComponent={emptyList}  
             />
 
             </View>
+            
           ) : (
             <View style={{flex: 3, justifyContent: 'center', marginTop:40}}>
               
@@ -71,10 +79,21 @@ export default function DrinkScreen() {
             </View>
           )}
         </View>
-      </ScrollView>
+      
     </>
   );
 }
+
+
+const emptyList = () => (
+  <View>
+      <Text>
+          
+              'No se encontraron resultados para la búsqueda realizada.' :
+
+      </Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
