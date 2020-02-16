@@ -31,10 +31,11 @@ export const fetching = (valor:string) => {
             .then(response => {
                 console.log(response.data.drinks[0].idDrink)
                 dispatch(fetchDrinkSucces(response.data.drinks))
+                dispatch(fetchDrinkFailure(false))
             })
             .catch(error => {
-                console.log(error)
-                dispatch(fetchDrinkFailure('Drink not found'))
+                console.log(error)                
+                dispatch(fetchDrinkFailure(true))
             })
     }
 }

@@ -20,10 +20,12 @@ export default function DrinkScreenE() {
   
     const dispatch = useDispatch();
     const loading = useSelector(( state: StateTypes ) => state.loading)
+    const error = useSelector(( state: StateTypes ) => state.error)
     const drinks = useSelector((state:StateTypes)=> state.drinks)
     const [input, setInput] = useState('');
   
     
+    console.log(error)
 
   const aprobar = () => {
     if (input.length > 3 ) {
@@ -38,7 +40,7 @@ export default function DrinkScreenE() {
 
   return (
     <>
-      
+        
         <View style={styles.container}>
           <View style={{flex: 1}}>
             <Text style={styles.titulo}> DRINKS </Text>
@@ -50,31 +52,35 @@ export default function DrinkScreenE() {
             />
           </View>
           
-          {drinks.length > 0 ? (
+          
+
+          {drinks.length > 0  && input.length > 3 ? (
            
-            <View style={{flex: 3, justifyContent: 'center', marginHorizontal:30}}>
+            <View style={{flex: 3, justifyContent: 'center', marginHorizontal:30, marginTop:17}}>
               
               { loading ? (<ActivityIndicator size="large"/>): null }
               
-              <FlatList
-              
-                data={drinks}
-                keyExtractor={(item:Drinks, index:number ) => item.idDrink}
-                renderItem={({ item }: any) => (
-                    <TouchableOpacity key={item.idDrink}>
-                    <Drink nombre={item.strDrink} image={item.strDrinkThumb}/>
-                    </TouchableOpacity>
-                )}
-                ListEmptyComponent={emptyList}  
-            />
+                {error ? <Text style={{marginTop:15, fontSize:20, fontWeight:'bold'}}>Not found </Text> :
 
+                  <FlatList
+                    data={drinks}
+                    keyExtractor={(item:Drinks, index:number ) => item.idDrink}
+                    renderItem={({ item }: any) => (
+                        <TouchableOpacity key={item.idDrink}>
+                        <Drink nombre={item.strDrink} image={item.strDrinkThumb}/>
+                        </TouchableOpacity>
+                    )}
+                  />
+
+              }
+              
             </View>
             
           ) : (
             <View style={{flex: 3, justifyContent: 'center', marginTop:40}}>
               
-              <Text style={{marginTop: 14, fontSize:20}}>
-                Drink not found
+              <Text style={{ fontSize:20, fontWeight:'bold'}}>
+                Search your Favourite drink
               </Text>
             </View>
           )}
@@ -85,15 +91,6 @@ export default function DrinkScreenE() {
 }
 
 
-const emptyList = () => (
-  <View>
-      <Text>
-          
-              'No se encontraron resultados para la búsqueda realizada.' :
-
-      </Text>
-  </View>
-);
 
 const styles = StyleSheet.create({
   container: {
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
     color: '#2a2c41',
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 15,
+    marginBottom: 20,
     marginTop: 20,
     borderColor: '#2a2c41',
     borderBottomColor: '#2a2c41',
@@ -122,5 +119,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#2a2c41',
     alignSelf: 'center',
+    
   },
 });

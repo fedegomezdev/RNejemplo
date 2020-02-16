@@ -19,7 +19,7 @@ export function rootReducer (state: StateTypes = initialState, action: any) {
           }
       case FETCH_DRINK_FAILURE:
           return {
-              ...state, error: action.payload
+              ...state, error: action.payload, loading:false
           }
       default:
           return { ...state };
