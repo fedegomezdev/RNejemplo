@@ -29,7 +29,8 @@ export const fetching = (valor:string) => {
         dispatch(fetchDrink());
         Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valor}`)
             .then(response => {
-                dispatch(fetchDrinkSucces([response.data]))
+                console.log(response.data.drinks[0].idDrink)
+                dispatch(fetchDrinkSucces(response.data.drinks))
             })
             .catch(error => {
                 console.log(error)
