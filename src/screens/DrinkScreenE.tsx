@@ -7,7 +7,9 @@ import {
   TextInput,
   ActivityIndicator,
   FlatList,
-  SafeAreaView
+  SafeAreaView,
+  Button,
+  Alert,
 } from 'react-native';
 import Drink from '../components/Drink';
 import {useDispatch, useSelector} from 'react-redux';
@@ -26,6 +28,7 @@ export default function DrinkScreenE() {
   
     
     console.log(error)
+    console.log(input)
 
   const aprobar = () => {
     if (input.length > 3 ) {
@@ -38,18 +41,31 @@ export default function DrinkScreenE() {
   }, [input]);
 
 
+  const borrar = () => {
+    console.log('asdasd');
+    setInput('')
+  }
+
   return (
     <>
         
         <View style={styles.container}>
           <View style={{flex: 1}}>
             <Text style={styles.titulo}> DRINKS </Text>
-            <TextInput
-              value={input}
-              style={styles.text}
-              placeholder={'Search'}
-              onChangeText={text => setInput(text)}
-            />
+            <View style={{flexDirection:"row"}}>
+              <TextInput
+                value={input}
+                style={styles.text}  
+                placeholder={'Search'}
+                onChangeText={text => setInput(text)}
+              />
+
+                <Text onPress={ ()=> borrar()} 
+                      style={{marginVertical:29 ,marginHorizontal:10, fontSize: 15,fontWeight: 'bold',}}>
+                        CANCEL
+                </Text>
+
+            </View>
           </View>
           
           
