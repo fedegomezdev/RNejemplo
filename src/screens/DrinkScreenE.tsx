@@ -30,21 +30,16 @@ export default function DrinkScreenE() {
     console.log(error)
     console.log(input)
 
-  const aprobar = () => {
+  const fetch = () => {
     if (input.length > 3 ) {
       dispatch(fetching(input));
     }
   };
 
   useEffect(() => {
-    aprobar();
+    fetch();
   }, [input]);
 
-
-  const borrar = () => {
-    console.log('asdasd');
-    setInput('')
-  }
 
   return (
     <>
@@ -58,10 +53,11 @@ export default function DrinkScreenE() {
                 style={styles.text}  
                 placeholder={'Search'}
                 onChangeText={text => setInput(text)}
+                inlineImageLeft="search_icon"
               />
 
-                <Text onPress={ ()=> borrar()} 
-                      style={{marginVertical:29 ,marginHorizontal:10, fontSize: 15,fontWeight: 'bold',}}>
+                <Text onPress={ ()=> setInput('')} 
+                      style={{marginVertical:33 ,marginHorizontal:10, fontSize: 15,fontWeight: 'bold',}}>
                         CANCEL
                 </Text>
 
@@ -76,18 +72,21 @@ export default function DrinkScreenE() {
               
               { loading ? (<ActivityIndicator size="large"/>): null }
               
-                {error ? <Text style={{marginTop:15, fontSize:20, fontWeight:'bold'}}>Not found </Text> :
-
+                {error ? 
+                  <Text style={{marginTop:15, fontSize:20, fontWeight:'bold'}}>Not found </Text> 
+                :
+                 
                   <FlatList
+                    horizontal={true}
                     data={drinks}
-                    keyExtractor={(item:Drinks, index:number ) => item.idDrink}
+                    keyExtractor={(item:Drinks) => item.idDrink}
                     renderItem={({ item }: any) => (
                         <TouchableOpacity key={item.idDrink}>
                         <Drink nombre={item.strDrink} image={item.strDrinkThumb}/>
                         </TouchableOpacity>
                     )}
                   />
-
+                 
               }
               
             </View>
@@ -105,7 +104,6 @@ export default function DrinkScreenE() {
     </>
   );
 }
-
 
 
 const styles = StyleSheet.create({

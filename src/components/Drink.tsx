@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Image , StyleSheet} from 'react-native';
+import {Text, Image , StyleSheet, View} from 'react-native';
 
 
 type Props = {
@@ -23,12 +23,21 @@ const style = StyleSheet.create({
     color: '#2a2c41',    
     marginBottom:15,
     fontWeight:'bold',
-    fontSize:20,
+    fontSize:25,
   },
   imagen : {
-    width: 350,
-    height:200,
+    width: 310,
+    height:400,
     marginBottom:30,
-    borderRadius:30
+    borderRadius:30,
+    marginRight:15,
+    
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
   }
 })
