@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   Button,
   Alert,
+  Platform,
 } from 'react-native';
 import Drink from '../components/Drink';
 import {useDispatch, useSelector} from 'react-redux';
@@ -43,8 +44,8 @@ export default function DrinkScreenE() {
 
   return (
     <>
-        
-        <View style={styles.container}>
+
+        <SafeAreaView style={styles.container}>
           <View style={{flex: 1, backgroundColor:'#f1b950', alignSelf:'stretch', borderBottomLeftRadius:30, borderBottomRightRadius:30}}>
           <Text style={styles.titulo}> Cocktails </Text>
             <View style={{flexDirection:"row", alignSelf:'center'}}>
@@ -53,13 +54,16 @@ export default function DrinkScreenE() {
                 style={styles.text}  
                 placeholder={'Search'}
                 onChangeText={text => setInput(text)}
-                inlineImageLeft="search_icon.png"
+                inlineImageLeft="search_icon"
+                inlineImagePadding={20}
               />
-
+              {input.length > 0 && (
                 <Text onPress={ ()=> setInput('')} 
-                      style={{marginVertical:33 ,marginHorizontal:10, fontSize: 15,fontWeight: 'bold', color:'#201b17'}}>
-                        CANCEL
+                  style={{marginVertical:33 ,marginHorizontal:10, fontSize: 15,fontWeight: 'bold', color:'#201b17'}}>
+                  CANCEL
                 </Text>
+              )}
+                
 
             </View>
           </View>
@@ -100,8 +104,8 @@ export default function DrinkScreenE() {
               </Text>
             </View>
           )}
-        </View>
-      
+        </SafeAreaView>
+       
     </>
   );
 }
@@ -133,6 +137,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#201b17',
     alignSelf: 'center',
-    
+    paddingTop:15
   },
 });
