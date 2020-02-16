@@ -7,10 +7,11 @@ export default function HomeScreen({navigation}:any) {
 
     return (
 
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , backgroundColor:'#f4f4f8'}}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , backgroundColor:'#f1b950'}}>
         <TouchableOpacity onPress={() => navigation.navigate('Drinks')}>
-        <Image source={require('../assets/icons/bebidas.png')} style={{width:200, height:200}}/>
-        <Text style={style.texto}>COCKTAILS </Text>
+        <Text style={style.titulo}>WELCOME TO COKTAILS </Text>
+        <Image source={require('../assets/icons/bebidas.png')} style={{width:200, height:200, alignSelf:"center"}}/>
+        <Text style={style.texto}>Find your Drink </Text>
         </TouchableOpacity>
         
       </View>
@@ -23,6 +24,15 @@ const style = StyleSheet.create({
       fontWeight:'bold',
       marginBottom:15,
       alignSelf:'center',
-      marginTop:15
+      marginTop:25,
+      color:'#201b17'
+  },
+  titulo : {
+    fontSize:30,
+    fontWeight:'bold',
+    marginBottom:15,
+    alignSelf:'center',
+    marginTop:15,
+    color:'#201b17'
   }
 })

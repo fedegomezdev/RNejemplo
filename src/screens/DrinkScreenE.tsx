@@ -45,19 +45,19 @@ export default function DrinkScreenE() {
     <>
         
         <View style={styles.container}>
-          <View style={{flex: 1}}>
-            <Text style={styles.titulo}> DRINKS </Text>
-            <View style={{flexDirection:"row"}}>
+          <View style={{flex: 1, backgroundColor:'#f1b950', alignSelf:'stretch', borderBottomLeftRadius:30, borderBottomRightRadius:30}}>
+          <Text style={styles.titulo}> Cocktails </Text>
+            <View style={{flexDirection:"row", alignSelf:'center'}}>
               <TextInput
                 value={input}
                 style={styles.text}  
                 placeholder={'Search'}
                 onChangeText={text => setInput(text)}
-                inlineImageLeft="search_icon"
+                inlineImageLeft="search_icon.png"
               />
 
                 <Text onPress={ ()=> setInput('')} 
-                      style={{marginVertical:33 ,marginHorizontal:10, fontSize: 15,fontWeight: 'bold',}}>
+                      style={{marginVertical:33 ,marginHorizontal:10, fontSize: 15,fontWeight: 'bold', color:'#201b17'}}>
                         CANCEL
                 </Text>
 
@@ -77,6 +77,7 @@ export default function DrinkScreenE() {
                 :
                  
                   <FlatList
+                  
                     horizontal={true}
                     data={drinks}
                     keyExtractor={(item:Drinks) => item.idDrink}
@@ -94,7 +95,7 @@ export default function DrinkScreenE() {
           ) : (
             <View style={{flex: 3, justifyContent: 'center', marginTop:40}}>
               
-              <Text style={{ fontSize:20, fontWeight:'bold'}}>
+              <Text style={{ fontSize:20, fontWeight:'bold', color:'#201b17'}}>
                 Search your Favourite drink
               </Text>
             </View>
@@ -116,22 +117,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   text: {
-    color: '#2a2c41',
+    color: '#786a5d',
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 15,
     marginTop: 20,
     borderColor: '#2a2c41',
     borderBottomColor: '#2a2c41',
-    alignSelf: 'stretch',
-    backgroundColor: 'grey',
+    backgroundColor: '#f4f4f8',
     width: 230,
     borderRadius: 10,
   },
   titulo: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#2a2c41',
+    color: '#201b17',
     alignSelf: 'center',
     
   },
