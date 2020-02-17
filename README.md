@@ -11,6 +11,27 @@
 - Run on Ios : `npx react-native run-ios`
 
 
+<p align="center" >
+  <img src="/src/assets/images/Screenshot_1581897109.png" width="200"  title="Home">
+  <img src="/src/assets/images/Screenshot_1581897112.png" width="200" alt="Search" >
+  <img src="/src/assets/images/Screenshot_1581897131.png" width="200" alt="Searching drink">
+</p>
+
+
+
+## How to Improve application performance
+#### Images:
+- Reduce image size
+- Convert images to WebP format
+- Use PNG instead of JPEG format
+- Save in cache
+
+#### Optimize Json Data:
+- Convert JSON data into simple objects before rendering because Javascript processes JSON slowly.
+
+#### Solve Memory leak problem:
+- Utilize scrolling lists like SectionList, FlatList, or VirtualizedList instead of Listview. Additionally, the scrolling list helps to smooth the infinite scroll pagination.
+
 
 
 
@@ -31,24 +52,4 @@
 - "redux-thunk": "^2.3.0"
 - "typescript": "^3.7.5"
 
-<p align="center" >
-  <img src="/src/assets/images/Screenshot_1581897109.png" width="200"  title="Home">
-  <img src="/src/assets/images/Screenshot_1581897112.png" width="200" alt="Search" >
-  <img src="/src/assets/images/Screenshot_1581897131.png" width="200" alt="Searching drink">
-</p>
 
-
-
-
-## How to Improve application performance
-#### Images:
-- Reduce image size
-- Convert images to WebP format
-- Use PNG instead of JPEG format
-- Save in cache
-
-#### Optimize Json Data:
-- Convert JSON data into simple objects before rendering because Javascript processes JSON slowly.
-
-#### Solve Memory leak problem:
-- Utilize scrolling lists like SectionList, FlatList, or VirtualizedList instead of Listview. Additionally, the scrolling list helps to smooth the infinite scroll pagination.

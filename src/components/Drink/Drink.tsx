@@ -13,7 +13,7 @@ export default function Drink({name, image }: Props) {
   return (
       <>
       <Text style={style.text}>{name}</Text>
-      <Image source={{uri: image}} style={style.imagen} />
+      <Image source={{uri: image}} style={style.image} />
       </>
   );
 }

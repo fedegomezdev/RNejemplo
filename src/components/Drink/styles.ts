@@ -8,7 +8,7 @@ const style = StyleSheet.create({
       fontSize:25,
       marginTop:15
     },
-    imagen : {
+    image : {
       width: 310,
       height:400,
       borderRadius:30,
