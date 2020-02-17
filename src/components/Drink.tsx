@@ -24,11 +24,11 @@ const style = StyleSheet.create({
     marginBottom:15,
     fontWeight:'bold',
     fontSize:25,
+    marginTop:15
   },
   imagen : {
     width: 310,
     height:400,
-    marginBottom:30,
     borderRadius:30,
     marginRight:15,
     

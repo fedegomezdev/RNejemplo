@@ -32,7 +32,7 @@ export default function DrinkScreenE() {
     console.log(input)
 
   const fetch = () => {
-    if (input.length > 3 ) {
+    if (input.length > 2 ) {
       dispatch(fetching(input));
     }
   };
@@ -70,7 +70,7 @@ export default function DrinkScreenE() {
           
           
 
-          {drinks.length > 0  && input.length > 3 ? (
+          {drinks.length > 0  && input.length > 2 ? (
            
             <View style={{flex: 3, justifyContent: 'center', marginHorizontal:30, marginTop:17}}>
               
