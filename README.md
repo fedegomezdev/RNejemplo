@@ -1,7 +1,7 @@
 # DrinkApp!
 ###### Search your drink
 
-###### You can find your favorite drink with a simple search
+###### You can find your favourite drink with a simple search
 
 ## Steps to use it and modify:
 - Clone the repository : `git clone https://github.com/fedegomezdev/DrinkApp.git drinkapp`
