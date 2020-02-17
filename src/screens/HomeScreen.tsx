@@ -9,10 +9,11 @@ export default function HomeScreen({navigation}:any) {
 
         <View style={style.container}>
          
-        <TouchableOpacity onPress={() => navigation.navigate('Drinks')}>
+        
         <Text style={style.titulo}>COCKTAIL </Text>
         <Text style={style.texto}>Find your Drink </Text>
         <Image source={require('../assets/icons/cocktailicon.png')} style={style.image}/>
+        <TouchableOpacity onPress={() => navigation.navigate('Drinks')}>
         <Text style={style.search}>Search</Text>
         </TouchableOpacity>
   
@@ -32,15 +33,15 @@ const style = StyleSheet.create({
       fontSize:20,
       fontWeight:'bold',
       marginBottom:100,
-      
+      alignSelf:'flex-start',
       marginTop:10,
       color:'#201b17',
+      marginLeft:50
 
   },
   titulo : {
     fontSize:60,
-    fontWeight:'bold',
-    
+    fontWeight:'bold',    
     marginTop:35,
     color:'#201b17',
     borderBottomColor:'#201b17',
@@ -54,11 +55,12 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
     fontSize:  27,
     marginTop:150,
-    paddingVertical:20
+    paddingVertical:20,
+    paddingHorizontal:60
   },
   image: {
     width:200,
     height:200,
-    alignSelf:"center"
+    marginLeft:15
   }
 })
