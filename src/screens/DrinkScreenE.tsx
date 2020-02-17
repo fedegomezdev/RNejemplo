@@ -3,14 +3,10 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   TextInput,
   ActivityIndicator,
   FlatList,
   SafeAreaView,
-  Button,
-  Alert,
-  Platform,
 } from 'react-native';
 import Drink from '../components/Drink';
 import {useDispatch, useSelector} from 'react-redux';
