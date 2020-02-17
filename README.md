@@ -32,15 +32,11 @@
 - "typescript": "^3.7.5"
 
 <p align="center">
-  <img src="/src/assets/images/Screenshot_1581897109.png" width="350"  title="hover text">
-  <img src="/src/assets/images/Screenshot_1581897112.png" width="350" alt="accessibility text">
-  <img src="/src/assets/images/Screenshot_1581897131.png" width="350" alt="accessibility text">
+  <img src="/src/assets/images/Screenshot_1581897109.png" width="200"  title="hover text">
+  <img src="/src/assets/images/Screenshot_1581897112.png" width="200" alt="accessibility text">
+  <img src="/src/assets/images/Screenshot_1581897131.png" width="200" alt="accessibility text">
 </p>
 
-
-![Image description](/src/assets/images/Screenshot_1581897109.png)
-![Image description](/src/assets/images/Screenshot_1581897112.png)
-![Image description](/src/assets/images/Screenshot_1581897131.png)
 
 
 
