@@ -31,10 +31,10 @@
 - "redux-thunk": "^2.3.0"
 - "typescript": "^3.7.5"
 
-<p align="center" style="margin-right:20">
-  <img src="/src/assets/images/Screenshot_1581897109.png" width="200"  title="Home">
-  <img src="/src/assets/images/Screenshot_1581897112.png" width="200" alt="Search">
-  <img src="/src/assets/images/Screenshot_1581897131.png" width="200" alt="Searching drink">
+<p align="center" >
+  <img src="/src/assets/images/Screenshot_1581897109.png" width="200"  title="Home" style="margin-right:50">
+  <img src="/src/assets/images/Screenshot_1581897112.png" width="200" alt="Search" style="margin-right:50">
+  <img src="/src/assets/images/Screenshot_1581897131.png" width="200" alt="Searching drink" style="margin-right:50">
 </p>
 
 
