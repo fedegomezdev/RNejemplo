@@ -1,7 +1,9 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeScreen from '../screens/HomeScreen';
-import DrinkScreenE from '../screens/DrinkScreenE';
+//import HomeScreen from '../screens/Home/HomeScreen';
+//import DrinkScreenE from '../screens/Drinks/DrinkScreenE';
+import {HomeScreen, DrinkScreen} from '../screens';
+
 
 
 const AppNavigator = createStackNavigator(
@@ -14,7 +16,7 @@ const AppNavigator = createStackNavigator(
       },
 
       Drinks: {
-        screen: DrinkScreenE,
+        screen: DrinkScreen,
         navigationOptions: ()=> ({
           headerShown:false
       })
