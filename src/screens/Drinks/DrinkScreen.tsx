@@ -17,7 +17,7 @@ import styles from './style';
 import color from '../../theme/palette';
 
 const DrinkScreen = ( ) => {
-  const textinput = React.useRef()
+  const textInput = React.useRef()
   const dispatch = useDispatch();
   const loading = useSelector((state: StateTypes) => state.loading);
   const error = useSelector((state: StateTypes) => state.error);
@@ -36,7 +36,7 @@ const DrinkScreen = ( ) => {
 
   const cancel = () => {
     setInput('');
-    textinput.current.blur()
+    (textInput as any).current.blur()
   }
 
   
@@ -53,7 +53,7 @@ const DrinkScreen = ( ) => {
             onChangeText={text => setInput(text)}
             inlineImageLeft="search_icon"
             inlineImagePadding={20}
-            ref={textinput}
+            ref={textInput}
           />
           {input.length > 0 && (
             <Text onPress={cancel} style={styles.cancel} >
@@ -93,6 +93,7 @@ const DrinkScreen = ( ) => {
           <Text style={styles.text}>Search your Favourite drink</Text>
         </View>
       )}
+      
     </SafeAreaView>
   );
 };
