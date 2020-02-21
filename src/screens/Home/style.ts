@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
+import color from '../../theme/palette';
 
 const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',    
-        backgroundColor:'#f1b950',
+        backgroundColor:color.primary,
         borderBottomLeftRadius:100,
         borderTopRightRadius:100,
     },
@@ -14,7 +15,7 @@ const style = StyleSheet.create({
         marginBottom:100,
         alignSelf:'flex-start',
         marginTop:10,
-        color:'#201b17',
+        color:color.colorText,
         marginLeft:50
   
     },
@@ -22,13 +23,13 @@ const style = StyleSheet.create({
       fontSize:60,
       fontWeight:'bold',    
       marginTop:35,
-      color:'#201b17',
-      borderBottomColor:'#201b17',
+      color:color.colorText,
+      borderBottomColor:color.colorText,
       borderBottomWidth:3
     },
     search: {
       backgroundColor: 'white',
-      color: '#201b17',
+      color: color.colorText,
       borderRadius: 25,
       textAlign: 'center',
       fontWeight: 'bold',

@@ -7,7 +7,7 @@ export const initialState: StateTypes = {
   error:false,  
 };
 
-export function rootReducer (state: StateTypes = initialState, action: any) {
+const rootReducer = (state: StateTypes = initialState, action: any) => { 
   switch (action.type) {
       case FETCH_DRINK:
           return {

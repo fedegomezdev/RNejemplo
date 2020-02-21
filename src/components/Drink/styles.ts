@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
+import color from '../../theme/palette'
 
 const style = StyleSheet.create({
     text: {
-      color: '#2a2c41',    
+      color: color.colorText,    
       marginBottom:15,
       fontWeight:'bold',
       fontSize:25,
@@ -12,8 +13,7 @@ const style = StyleSheet.create({
       width: 310,
       height:400,
       borderRadius:30,
-      marginRight:15,
-      
+      marginRight:15,     
       shadowColor: "#000",
       shadowOffset: {
         width: 0,

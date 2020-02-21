@@ -1,1 +1,1 @@
-export { default  } from './DrinkScreenE';
+export { default  } from './DrinkScreen';
