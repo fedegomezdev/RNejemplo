@@ -7,6 +7,6 @@ export type Drinks = {
 
 export type StateTypes = {
     loading: boolean;
-    error: boolean;
+    error: string;
     drinks: Drinks[];
 };

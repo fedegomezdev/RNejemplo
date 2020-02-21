@@ -6,18 +6,18 @@ import {
   ActivityIndicator,
   FlatList,
   SafeAreaView,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import {Drink} from '../../components';
 import {useDispatch, useSelector} from 'react-redux';
 import {StateTypes, Drinks} from '../../types/types';
 import {fetching} from '../../redux/actions/actions';
-//import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './style';
 import color from '../../theme/palette';
 
-const DrinkScreen = ( ) => {
-  const textInput = React.useRef()
+const DrinkScreen = () => {
+  const textInput = React.useRef();
   const dispatch = useDispatch();
   const loading = useSelector((state: StateTypes) => state.loading);
   const error = useSelector((state: StateTypes) => state.error);
@@ -36,13 +36,13 @@ const DrinkScreen = ( ) => {
 
   const cancel = () => {
     setInput('');
-    (textInput as any).current.blur()
-  }
-
-  
+    (textInput as any).current.blur();
+  };
 
   return (
+    
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={color.primary} barStyle="light-content" />
       <View style={styles.content}>
         <Text style={styles.title}> Cocktails </Text>
         <View style={styles.viewText}>
@@ -55,26 +55,28 @@ const DrinkScreen = ( ) => {
             inlineImagePadding={20}
             ref={textInput}
           />
-          {input.length > 0 && (
-            <Text onPress={cancel} style={styles.cancel} >
+          {input.length > 0 ? (
+            <Text onPress={cancel} style={styles.cancel}>
               CANCEL
             </Text>
-          )}
+          ) : <Text style={styles.cancelDisabled}>
+          CANCEL
+          </Text>}
         </View>
       </View>
 
-      {drinks.length > 0 && input.length > 2 ? (
-        <View style={styles.contentDrink} >
-          {loading && (
-            <ActivityIndicator
-              size="large"
-              color={color.primary}
-              style={styles.activityIndicator}
-            />
-          )}
+      {loading && (
+        <ActivityIndicator
+          size="large"
+          color={color.primary}
+          style={styles.activityIndicator}
+        />
+      )}
 
-          {error ? (
-            <Text style={styles.textNotFound}> Not found </Text>
+      {drinks.length > 0 && input.length > 2 ? (
+        <View style={styles.contentDrink}>
+          {error !== '' ? (
+            <Text style={styles.textNotFound}>Not Found</Text>
           ) : (
             <FlatList
               horizontal={true}
@@ -93,7 +95,6 @@ const DrinkScreen = ( ) => {
           <Text style={styles.text}>Search your Favourite drink</Text>
         </View>
       )}
-      
     </SafeAreaView>
   );
 };

@@ -4,7 +4,7 @@ import {StateTypes} from '../../types/types';
 export const initialState: StateTypes = {
   drinks: [],
   loading: false,
-  error:false,  
+  error:"",  
 };
 
 const rootReducer = (state: StateTypes = initialState, action: any) => { 

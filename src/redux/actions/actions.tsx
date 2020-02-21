@@ -16,7 +16,7 @@ export const fetchDrinkSucces: any = (payload : Drinks[]) => {
     }
 }
 
-export const fetchDrinkFailure: any = (payload: any) => {
+export const fetchDrinkFailure: any = (payload: string) => {
     return{
         type: FETCH_DRINK_FAILURE,
         payload
@@ -25,17 +25,19 @@ export const fetchDrinkFailure: any = (payload: any) => {
 
 
 export const fetching = (valor:string) => {
-    return  (dispatch:any) => {
+    return (dispatch:any) => {
         dispatch(fetchDrink());
         Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valor}`)
             .then(response => {
                 console.log(response.data.drinks[0].idDrink)
                 dispatch(fetchDrinkSucces(response.data.drinks))
-                dispatch(fetchDrinkFailure(false))
+                dispatch(fetchDrinkFailure(""))
+                console.log("anda")
             })
             .catch(error => {
-                console.log(error)                
-                dispatch(fetchDrinkFailure(true))
+                console.log(error)          
+                console.log("no anda")      
+                dispatch(fetchDrinkFailure(error))
             })
     }
 }

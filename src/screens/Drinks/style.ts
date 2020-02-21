@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import color from '../../theme/palette';
 
 const styles = StyleSheet.create({
@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: color.backgroundWhite,
       color: '#2a2c41',
-
     },
     inputText: {
       color: color.colorText,
@@ -28,11 +27,12 @@ const styles = StyleSheet.create({
       paddingTop:15
     },
     content: {
-      flex: 1,
+      paddingBottom:10,
       backgroundColor:color.primary,
       alignSelf:'stretch',
       borderBottomLeftRadius:30,
-      borderBottomRightRadius:30
+      borderBottomRightRadius:30,
+            
     },
     cancel: {
       marginVertical:33,
@@ -40,6 +40,13 @@ const styles = StyleSheet.create({
       fontSize: 15,
       fontWeight: 'bold',
       color:color.colorText
+    },
+    cancelDisabled: {
+      marginVertical:33,
+      marginHorizontal:10,
+      fontSize: 15,
+      fontWeight: 'bold',
+      color:color.primary
     },
     text: {
       fontSize:20,
@@ -68,7 +75,9 @@ const styles = StyleSheet.create({
     
     },
     activityIndicator : {
-      marginTop: 25
+      marginTop:100,
+      marginHorizontal:30,
+      
     }
   });
   
