@@ -15,7 +15,7 @@ const rootReducer = (state: StateTypes = initialState, action: any) => {
           }
       case FETCH_DRINK_SUCCESS:
           return {
-              ...state, loading: false, drinks: action.payload
+              ...state, loading: false, drinks: action.payload, error: ""
           }
       case FETCH_DRINK_FAILURE:
           return {

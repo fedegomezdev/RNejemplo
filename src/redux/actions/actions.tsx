@@ -25,19 +25,20 @@ export const fetchDrinkFailure: any = (payload: string) => {
 
 
 export const fetching = (valor:string) => {
-    return (dispatch:any) => {
+    return async (dispatch:any) => {
         dispatch(fetchDrink());
-        Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valor}`)
-            .then(response => {
+        try{        
+        let response =  await Axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valor}`);
+            if(response.status == 200){
                 console.log(response.data.drinks[0].idDrink)
                 dispatch(fetchDrinkSucces(response.data.drinks))
-                dispatch(fetchDrinkFailure(""))
-                console.log("anda")
-            })
-            .catch(error => {
-                console.log(error)          
+            }
+            else {
+                dispatch(fetchDrinkFailure(response.status))
+            }
+        }catch(error){
+            console.log(error)          
                 console.log("no anda")      
                 dispatch(fetchDrinkFailure(error))
-            })
-    }
-}
+        }      
+}}

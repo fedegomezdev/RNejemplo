@@ -24,14 +24,8 @@ const DrinkScreen = () => {
   const drinks = useSelector((state: StateTypes) => state.drinks);
   const [input, setInput] = useState('');
 
-  const fetch = () => {
-    if (input.length > 2) {
-      dispatch(fetching(input));
-    }
-  };
-
   useEffect(() => {
-    fetch();
+    input.length > 2 && dispatch(fetching(input));
   }, [input]);
 
   const cancel = () => {
@@ -40,7 +34,6 @@ const DrinkScreen = () => {
   };
 
   return (
-    
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={color.primary} barStyle="light-content" />
       <View style={styles.content}>
@@ -59,42 +52,47 @@ const DrinkScreen = () => {
             <Text onPress={cancel} style={styles.cancel}>
               CANCEL
             </Text>
-          ) : <Text style={styles.cancelDisabled}>
-          CANCEL
-          </Text>}
+          ) : (
+            <Text style={styles.cancelDisabled}>CANCEL</Text>
+          )}
         </View>
       </View>
 
-      {loading && (
-        <ActivityIndicator
-          size="large"
-          color={color.primary}
-          style={styles.activityIndicator}
-        />
-      )}
+      <View style={styles.contentDrink}>
+        {loading && (
+          <ActivityIndicator
+            size="large"
+            color={color.primary}
+            style={styles.activityIndicator}
+          />
+        )}
 
-      {drinks.length > 0 && input.length > 2 ? (
-        <View style={styles.contentDrink}>
-          {error !== '' ? (
-            <Text style={styles.textNotFound}>Not Found</Text>
-          ) : (
-            <FlatList
-              horizontal={true}
-              data={drinks}
-              keyExtractor={(item: Drinks) => item.idDrink}
-              renderItem={({item}: {item: Drinks}) => (
-                <TouchableOpacity key={item.idDrink}>
-                  <Drink name={item.strDrink} image={item.strDrinkThumb} />
-                </TouchableOpacity>
-              )}
-            />
-          )}
-        </View>
-      ) : (
-        <View style={styles.viewStart}>
-          <Text style={styles.text}>Search your Favourite drink</Text>
-        </View>
-      )}
+        {error !== '' && input.length > 2 && (
+          <Text style={styles.textNotFound}>
+            An error ocurred : {error.toString()}
+          </Text>
+        )}
+
+        {drinks.length > 0 && input.length > 2 && error === '' && (
+          <FlatList
+            horizontal={true}
+            data={drinks}
+            keyExtractor={(item: Drinks) => item.idDrink}
+            renderItem={({item}: {item: Drinks}) => (
+              <TouchableOpacity key={item.idDrink}>
+                <Drink name={item.strDrink} image={item.strDrinkThumb} />
+              </TouchableOpacity>
+            )}
+          />
+        )}
+      </View>
+
+      {drinks.length <= 0 ||
+        (input.length <= 0 && (
+          <View style={styles.viewStart}>
+            <Text style={styles.text}>Search your Favourite drink</Text>
+          </View>
+        ))}
     </SafeAreaView>
   );
 };
