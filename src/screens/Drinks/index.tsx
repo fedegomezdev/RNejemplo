@@ -25,6 +25,7 @@ const DrinkScreen = () => {
   const [input, setInput] = useState('');
 
   useEffect(() => {
+    console.log(error)
     input.length > 2 && dispatch(fetching(input));
   }, [input]);
 
@@ -73,7 +74,7 @@ const DrinkScreen = () => {
           </Text>
         )}
 
-        {drinks.length > 0 && input.length > 2 && error === '' && (
+        { input.length > 2 && error === '' && (
           <FlatList
             horizontal={true}
             data={drinks}
@@ -87,12 +88,12 @@ const DrinkScreen = () => {
         )}
       </View>
 
-      {drinks.length <= 0 ||
-        (input.length <= 0 && (
+      { 
+        input.length <= 0 && (
           <View style={styles.viewStart}>
             <Text style={styles.text}>Search your Favourite drink</Text>
           </View>
-        ))}
+        )}
     </SafeAreaView>
   );
 };
