@@ -25,7 +25,6 @@ const DrinkScreen = () => {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    console.log(error)
     input.length > 2 && dispatch(fetching(input));
   }, [input]);
 
