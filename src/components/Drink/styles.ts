@@ -7,11 +7,11 @@ const style = StyleSheet.create({
       marginBottom:15,
       fontWeight:'bold',
       fontSize:25,
-      marginTop:15
+      marginTop:15,
     },
     image : {
       width: 310,
-      height:400,
+      height:440,
       borderRadius:30,
       marginRight:15,     
       shadowColor: "#000",

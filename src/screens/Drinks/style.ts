@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     contentDrink : {
       flex: 3,
       justifyContent: 'center',
-      marginHorizontal:30,
+      marginHorizontal:13,
       marginTop:17
     },
     textNotFound : {
@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     viewStart : {
       flex: 3, 
       justifyContent: 'center', 
-      marginTop:40
-    
+      marginTop:40,
+      
     },
     activityIndicator : {
       marginTop:100,

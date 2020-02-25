@@ -48,6 +48,7 @@ const DrinkScreen = () => {
             inlineImagePadding={20}
             ref={textInput}
           />
+          
           {input.length > 0 ? (
             <Text onPress={cancel} style={styles.cancel}>
               CANCEL
@@ -55,6 +56,7 @@ const DrinkScreen = () => {
           ) : (
             <Text style={styles.cancelDisabled}>CANCEL</Text>
           )}
+
         </View>
       </View>
 
@@ -85,14 +87,17 @@ const DrinkScreen = () => {
             )}
           />
         )}
-      </View>
 
-      { 
+        { 
         input.length <= 0 && (
           <View style={styles.viewStart}>
             <Text style={styles.text}>Search your Favourite drink</Text>
           </View>
-        )}
+        )}      
+
+      </View>
+
+
     </SafeAreaView>
   );
 };
