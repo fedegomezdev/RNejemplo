@@ -33,11 +33,7 @@ export const fetching = (valor: string) => {
       let response = await Axios.get(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valor}`,
       );
-      if (response.data.drinks) {
-        dispatch(fetchDrinkSucces(response.data.drinks));
-      } else {
-        throw Error(response.statusText)
-      }
+      dispatch(fetchDrinkSucces(response.data.drinks));
     } catch (error) {
       console.log(error);
       dispatch(fetchDrinkFailure(error));

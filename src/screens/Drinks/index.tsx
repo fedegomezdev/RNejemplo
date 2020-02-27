@@ -48,7 +48,7 @@ const DrinkScreen = () => {
             inlineImagePadding={20}
             ref={textInput}
           />
-          
+
           {input.length > 0 ? (
             <Text onPress={cancel} style={styles.cancel}>
               CANCEL
@@ -56,7 +56,6 @@ const DrinkScreen = () => {
           ) : (
             <Text style={styles.cancelDisabled}>CANCEL</Text>
           )}
-
         </View>
       </View>
 
@@ -69,13 +68,15 @@ const DrinkScreen = () => {
           />
         )}
 
-        {error !== '' && input.length > 2 && (
-          <Text style={styles.textNotFound}>
-            An error ocurred : {error.toString()}
-          </Text>
-        )}
+        {error !== '' ||
+          (!drinks && input.length > 2 && (
+            <Text style={styles.textNotFound}>
+              An error ocurred {error.toString()}
+              Please try another drink
+            </Text>
+          ))}
 
-        { input.length > 2 && error === '' && (
+        {input.length > 2 && error === '' && (
           <FlatList
             horizontal={true}
             data={drinks}
@@ -88,16 +89,12 @@ const DrinkScreen = () => {
           />
         )}
 
-        { 
-        input.length <= 0 && (
+        {input.length <= 0 && (
           <View style={styles.viewStart}>
             <Text style={styles.text}>Search your Favourite drink</Text>
           </View>
-        )}      
-
+        )}
       </View>
-
-
     </SafeAreaView>
   );
 };

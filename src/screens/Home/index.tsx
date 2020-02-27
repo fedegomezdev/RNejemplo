@@ -5,8 +5,7 @@ const image = require('../../assets/icons/cocktailicon.png');
 import color from '../../theme/palette';
 
 const HomeScreen = ({navigation}: any) => {
-
-  const navigate = () => navigation.navigate('Drinks')
+  const navigate = () => navigation.navigate('Drinks');
 
   return (
     <View style={style.container}>
@@ -14,7 +13,7 @@ const HomeScreen = ({navigation}: any) => {
       <Text style={style.title}>COCKTAIL </Text>
       <Text style={style.text}>Find your Drink </Text>
       <Image source={image} style={style.image} />
-      <TouchableOpacity onPress={ navigate }>
+      <TouchableOpacity onPress={navigate}>
         <Text style={style.search}>Search</Text>
       </TouchableOpacity>
     </View>
@@ -22,4 +21,3 @@ const HomeScreen = ({navigation}: any) => {
 };
 
 export default HomeScreen;
-
