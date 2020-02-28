@@ -67,10 +67,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
   },
-  viewStart: {
-    flex: 3,
+  viewStart: {   
     justifyContent: 'center',
-    marginTop: 40,
   },
   activityIndicator: {
     marginTop: 100,

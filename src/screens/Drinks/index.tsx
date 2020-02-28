@@ -76,7 +76,7 @@ const DrinkScreen = () => {
             </Text>
           )}
 
-        {input.length > 2 && error === '' && (
+        {input.length > 2 && error === '' && !loading && (
           <FlatList
             horizontal={true}
             data={drinks}
