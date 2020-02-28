@@ -1,12 +1,11 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform, StatusBar} from 'react-native';
 import color from '../../theme/palette';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: color.backgroundWhite,    
+    alignItems: 'center',   
   },
   inputText: {
     color: color.colorText,
@@ -31,6 +30,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
+    paddingTop:0
   },
   cancel: {
     marginVertical: 33,
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 5,
     marginTop: 17,
+    backgroundColor:color.backgroundWhite
   },
   textNotFound: {
     marginTop: 250,

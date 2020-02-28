@@ -34,7 +34,9 @@ const DrinkScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <>
+    <SafeAreaView style={{backgroundColor:color.primary}}/>
+    <View style={styles.container}>
       <StatusBar backgroundColor={color.primary} barStyle="light-content" />
       <View style={styles.content}>
         <Text style={styles.title}> Cocktails </Text>
@@ -95,7 +97,9 @@ const DrinkScreen = () => {
           </View>
         )}
       </View>
-    </SafeAreaView>
+      
+    </View>
+    </>
   );
 };
 
