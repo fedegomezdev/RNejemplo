@@ -8,6 +8,7 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25,
     marginTop: 15,
+    marginLeft:15
   },
   image: {
     width: 310,

@@ -69,12 +69,12 @@ const DrinkScreen = () => {
         )}
 
         {error !== '' ||
-          (!drinks && input.length > 2 && (
+          !drinks && input.length > 2 && (
             <Text style={styles.textNotFound}>
-              An error ocurred {error.toString()}
+              An error ocurred {error.toString()} {"\n"}
               Please try another drink
             </Text>
-          ))}
+          )}
 
         {input.length > 2 && error === '' && (
           <FlatList

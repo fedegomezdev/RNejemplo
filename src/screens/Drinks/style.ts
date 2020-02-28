@@ -1,4 +1,4 @@
-import {StyleSheet, Platform} from 'react-native';
+import {StyleSheet} from 'react-native';
 import color from '../../theme/palette';
 
 const styles = StyleSheet.create({
@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: color.backgroundWhite,
-    color: '#2a2c41',
+    backgroundColor: color.backgroundWhite,    
   },
   inputText: {
     color: color.colorText,
@@ -55,13 +54,14 @@ const styles = StyleSheet.create({
   contentDrink: {
     flex: 3,
     justifyContent: 'center',
-    marginHorizontal: 13,
+    marginHorizontal: 5,
     marginTop: 17,
   },
   textNotFound: {
-    marginTop: 15,
+    marginTop: 250,
     fontSize: 20,
     fontWeight: 'bold',
+    marginLeft:15
   },
   viewText: {
     flexDirection: 'row',

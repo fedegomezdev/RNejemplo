@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StatusBar} from 'react-native';
 import style from './style';
-const image = require('../../assets/icons/cocktailicon.png');
+import image from '../../assets/icons/cocktailicon.png';
 import color from '../../theme/palette';
 
 const HomeScreen = ({navigation}: any) => {
